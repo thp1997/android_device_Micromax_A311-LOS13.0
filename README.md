@@ -12,7 +12,7 @@
   * HD games
   * Tethering (Wifi, Bluetooth and USB)
   
- * Not Working
+* Not Working
   * VPN
   * 2G/3G Switch
 
