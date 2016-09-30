@@ -117,6 +117,10 @@ PRODUCT_PACKAGES += \
     libfmcust \
     libmtkplayer
 
+# YGPS
+PRODUCT_PACKAGES+=\
+    YGPS
+
 # Camera
 PRODUCT_PACKAGES += \
     Snap
