@@ -116,5 +116,8 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_
 BOARD_SEPOLICY_DIRS := \
        device/Micromax/A311/sepolicy
 
+# Hack for build
+$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
+
 # Use old sepolicy version
 POLICYVERS := 26
