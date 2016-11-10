@@ -53,5 +53,10 @@ ro.telephony.ril.config=fakeiccid
 
 persist.radio.multisim.config=dsds
 
+ro.zygote.preload.enable=0
+
+# Disable dirty region for Mali
+debug.hwui.render_dirty_regions=false
+
 persist.sys.strictmode.visual=0
 persist.sys.strictmode.disable=1
