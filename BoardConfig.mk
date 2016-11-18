@@ -114,6 +114,10 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_
 
 BOARD_SEPOLICY_DIRS := \
        device/Micromax/A311/sepolicy
+       
+
+# Enable Minikin text layout engine (will be the default soon)
+USE_MINIKIN := true
 
 # Hack for build
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
