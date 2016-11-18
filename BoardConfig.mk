@@ -119,7 +119,7 @@ BOARD_SEPOLICY_DIRS := \
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
 
 # Remove Stock FMRadio by Default.
-$(shell rm -rf $(LOCAL_DIR)/packages/apps/FMRadio)
+$(shell rm -rf $(LOCAL_PATH)/packages/apps/FMRadio)
 
 # Use old sepolicy version
 POLICYVERS := 26
