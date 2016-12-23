@@ -37,7 +37,7 @@ persist.radio.fd.off.r8.counter=5
 fmradio.driver.enable=1
 ril.radiooff.poweroffMD=0
 
-mux.debuglog.enable=0
+mux.debuglog.enable=1
 
 ril.specific.sm_cause=0
 ril.external.md=0
