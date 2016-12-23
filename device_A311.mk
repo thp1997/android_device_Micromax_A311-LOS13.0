@@ -15,6 +15,8 @@ else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
+PRODUCT_TAGS += dalvik.gc.type-precise
+
 PRODUCT_PACKAGES += \
     libxlog
 
@@ -36,9 +38,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     audio_policy.default
     
+PRODUCT_PACKAGES += \
+    lib_driver_cmd_mt66xx
+    
+#USE_CUSTOM_AUDIO_POLICY := 1
+    
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
 
 # Wifi
@@ -58,9 +66,14 @@ PRODUCT_PACKAGES += \
     libbt-vendor
 
 # GSM
-PRODUCT_PACKAGES += \
-    gsm0710muxd \
-    gsm0710muxdmd2
+#PRODUCT_PACKAGES += \
+#    gsm0710muxd \
+#    gsm0710muxdmd2
+
+PRODUCT_PACKAGES += libmt6592
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.ril_class=MediaTekRIL
 
 PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml
@@ -72,13 +85,6 @@ PRODUCT_COPY_FILES += \
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/mtk-kpd.kl:system/usr/keylayout/mtk-kpd.kl \
-
-# Thermal
-PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/configs/thermal.conf:system/etc/.tp/thermal.conf \
-     $(LOCAL_PATH)/configs/.ht120.mtc:system/etc/.tp/.ht120.mtc \
-     $(LOCAL_PATH)/configs/thermal.off.conf:system/etc/.tp/thermal.off.conf \
-     $(LOCAL_PATH)/configs/thermalstress.cfg:system/etc/.tp/thermalstress.cfg
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
@@ -112,10 +118,20 @@ PRODUCT_COPY_FILES += \
 # Keylayout overrides
 PRODUCT_COPY_FILES_OVERRIDES += \
     system/usr/keylayout/Generic.kl
-
-# USB
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
+    
+PRODUCT_PROPERTY_OVERRIDES := \
+	ro.mediatek.version.release=ALPS.W10.24.p0 \
+	ro.mediatek.platform=MT6592 \
+	ro.mediatek.chip_ver=S01 \
+	ro.mediatek.version.branch=KK1.MP1 \
+	ro.mediatek.version.sdk=2 \
+	ro.telephony.sim.count=2 \
+	ro.allow.mock.location=0 \
+	ro.debuggable=1 \
+	persist.sys.usb.config=mtp,adb \
+	persist.service.adb.enable=1 \
+	persist.service.debuggable=1 \
+	persist.mtk.wcn.combo.chipid=-1
 
 # Torch
 PRODUCT_PACKAGES += \
@@ -149,4 +165,4 @@ PRODUCT_PACKAGES += \
     librs_jni \
     com.android.future.usb.accessory
 
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
