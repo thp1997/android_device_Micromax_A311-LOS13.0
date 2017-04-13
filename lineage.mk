@@ -11,7 +11,7 @@ $(call inherit-product, device/Micromax/A311/device_A311.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := A311
-PRODUCT_NAME := cm_A311
+PRODUCT_NAME := lineage_A311
 PRODUCT_BRAND := Micromax
 PRODUCT_MODEL := A311
 PRODUCT_MANUFACTURER := Micromax
