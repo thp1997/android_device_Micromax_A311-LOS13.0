@@ -10,11 +10,11 @@
   * GPS
   * Screen Record
   * HD games
+  * 2G/3G Switch
   * Tethering (Wifi, Bluetooth and USB)
   
 * Not Working
   * VPN
-  * 2G/3G Switch
 
 # MTK
 
